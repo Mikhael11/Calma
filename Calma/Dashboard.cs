@@ -60,6 +60,7 @@ namespace Calma
         private void Printdaily_Click(object sender, EventArgs e)
         {
             dayprint1.Visible=true;
+            dayprint1.loaddata();
             dayprint1.BringToFront();
         }
 

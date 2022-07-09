@@ -133,21 +133,24 @@ namespace Calma.Control
 
         private void Print_Click(object sender, EventArgs e)
         {
-            string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
+            if(total > 0)
+            {
+                string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            conn.Open();
-            cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + total + ")";
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            total = 0;
-            amount = 0;
-            guna2DataGridView1.Rows.Clear();
-            txtTotalPrice.Text = "LE";
-
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = "data source =DESKTOP-B73FHQT;database = CalmaDb; integrated security =True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                conn.Open();
+                cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + total + ")";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                total = 0;
+                amount = 0;
+                guna2DataGridView1.Rows.Clear();
+                txtTotalPrice.Text = "LE";
+                numorder.Value = 0;
+            }
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -156,6 +159,11 @@ namespace Calma.Control
         }
 
         private void Order_item_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textpriceorder_TextChanged(object sender, EventArgs e)
         {
 
         }
