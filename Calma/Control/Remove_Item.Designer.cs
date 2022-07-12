@@ -123,7 +123,6 @@
             this.txtsrchforremove.Name = "txtsrchforremove";
             this.txtsrchforremove.Size = new System.Drawing.Size(168, 28);
             this.txtsrchforremove.TabIndex = 9;
-            this.txtsrchforremove.TextChanged += new System.EventHandler(this.txtsrchforremove_TextChanged);
             // 
             // label1
             // 
@@ -138,7 +137,6 @@
             // 
             // rmvitembtn
             // 
-<<<<<<< HEAD
             this.rmvitembtn.BorderRadius = 26;
             this.rmvitembtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.rmvitembtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -153,17 +151,6 @@
             this.rmvitembtn.TabIndex = 16;
             this.rmvitembtn.Text = "Remove";
             this.rmvitembtn.Click += new System.EventHandler(this.rmvitembtn_Click);
-=======
-            this.DltItem.AutoSize = true;
-            this.DltItem.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.DltItem.ForeColor = System.Drawing.Color.Black;
-            this.DltItem.Location = new System.Drawing.Point(687, 516);
-            this.DltItem.Name = "DltItem";
-            this.DltItem.Size = new System.Drawing.Size(85, 29);
-            this.DltItem.TabIndex = 11;
-            this.DltItem.Text = "Remove";
-            this.DltItem.Click += new System.EventHandler(this.label4_Click);
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             // 
             // Remove_Item
             // 

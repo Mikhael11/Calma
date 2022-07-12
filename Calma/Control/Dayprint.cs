@@ -42,12 +42,6 @@ namespace Calma.Control
             //String time = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             //int price = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
         }
-
-<<<<<<< HEAD
-        
-
-=======
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DateTimePicker senderObject = (DateTimePicker)sender;
@@ -55,7 +49,6 @@ namespace Calma.Control
             DataSet ds = fn.GetData(query);
             guna2DataGridView1.DataSource = ds.Tables[0];
         }
-<<<<<<< HEAD
         double total;
         private void Print_Click(object sender, EventArgs e)
         {
@@ -73,7 +66,5 @@ namespace Calma.Control
             }
             txttotaltransactions.Text = sum.ToString();
         }
-=======
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
     }
 }

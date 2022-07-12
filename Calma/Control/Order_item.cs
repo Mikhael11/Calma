@@ -125,7 +125,7 @@ namespace Calma.Control
             {
                 
                 guna2DataGridView1.Rows.RemoveAt(this.guna2DataGridView1.SelectedRows[0].Index);
-                if (total >= 0)
+                if (total > 0)
                 {
                     total = total - amount;
                 }
@@ -134,33 +134,20 @@ namespace Calma.Control
             {
 
             }
-<<<<<<< HEAD
-            
-           // total -= amount;
-            txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + " LE";
-=======
-            total -= amount;
             txtTotalPrice.Text = + Math.Ceiling(total + (total * 0.12)) + " LE";
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
+            txtPrice.Text = +Math.Ceiling(total) + "LE";
+            txtService.Text = +Math.Ceiling(total * 0.12) + "LE";
 
         }
 
         private void Print_Click(object sender, EventArgs e)
         {
-<<<<<<< HEAD
             if (total > 0)
-=======
-            if(total > 0)
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             {
                 string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
 
                 SqlConnection conn = new SqlConnection();
-<<<<<<< HEAD
-                conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
-=======
                 conn.ConnectionString = "data source =DESKTOP-B73FHQT;database = CalmaDb; integrated security =True";
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 conn.Open();
@@ -171,6 +158,8 @@ namespace Calma.Control
                 amount = 0;
                 guna2DataGridView1.Rows.Clear();
                 txtTotalPrice.Text = "LE";
+                txtPrice.Text = "LE";
+                txtService.Text = "LE";
                 numorder.Value = 0;
             }
         }
@@ -206,11 +195,9 @@ namespace Calma.Control
                 guna2DataGridView1.Rows[n].Cells[3].Value = texttotalorder.Text;
 
                 total += int.Parse(texttotalorder.Text);
-<<<<<<< HEAD
                 txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "LE";
-=======
-                txtTotalPrice.Text = + Math.Ceiling(total + (total*0.12)) + "LE";
->>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
+                txtPrice.Text = +Math.Ceiling(total) + "LE";
+                txtService.Text = +Math.Ceiling(total * 0.12) + "LE";
             }
             else
             {
@@ -219,6 +206,11 @@ namespace Calma.Control
         }
 
         private void txtTotalPrice_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label11_Click(object sender, EventArgs e)
         {
 
         }
