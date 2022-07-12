@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DGVPrinterHelper;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -41,6 +42,33 @@ namespace Calma.Control
             // = guna2DataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
             //String time = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
             //int price = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
+        }
+
+        
+
+        private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
+        {
+            DateTimePicker senderObject = (DateTimePicker)sender;
+            query = "Select * from Transactions where date like'" + senderObject.Value.ToString("dd-MM-yyyy") + "%'";
+            DataSet ds = fn.GetData(query);
+            guna2DataGridView1.DataSource = ds.Tables[0];
+        }
+        double total;
+        private void Print_Click(object sender, EventArgs e)
+        {
+            
+            DGVPrinter printer = new DGVPrinter();
+            printer.PrintDataGridView(guna2DataGridView1);
+        }
+
+        private void Seesumbtn_Click(object sender, EventArgs e)
+        {
+            int sum = 0;
+            for (int i = 0; i < guna2DataGridView1.Rows.Count; ++i)
+            {
+                sum += Convert.ToInt32(guna2DataGridView1.Rows[i].Cells[2].Value);
+            }
+            txttotaltransactions.Text = sum.ToString();
         }
     }
 }

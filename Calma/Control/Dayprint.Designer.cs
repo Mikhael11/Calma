@@ -32,6 +32,10 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.Print = new Guna.UI2.WinForms.Guna2Button();
+            this.txttotaltransactions = new System.Windows.Forms.Label();
+            this.Seesumbtn = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -72,7 +76,7 @@
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 29;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(815, 279);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(697, 353);
             this.guna2DataGridView1.TabIndex = 0;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -98,11 +102,68 @@
             this.guna2DataGridView1.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellClick);
             this.guna2DataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.guna2DataGridView1_CellContentClick);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(44, 99);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(272, 27);
+            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+            // Print
+            // 
+            this.Print.BorderRadius = 26;
+            this.Print.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Print.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Print.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Print.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Print.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
+            this.Print.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Print.ForeColor = System.Drawing.Color.White;
+            this.Print.Location = new System.Drawing.Point(571, 640);
+            this.Print.Name = "Print";
+            this.Print.Size = new System.Drawing.Size(202, 56);
+            this.Print.TabIndex = 16;
+            this.Print.Text = "Print";
+            this.Print.Click += new System.EventHandler(this.Print_Click);
+            // 
+            // txttotaltransactions
+            // 
+            this.txttotaltransactions.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.txttotaltransactions.Font = new System.Drawing.Font("Segoe UI Symbol", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.txttotaltransactions.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.txttotaltransactions.Location = new System.Drawing.Point(289, 610);
+            this.txttotaltransactions.Name = "txttotaltransactions";
+            this.txttotaltransactions.Size = new System.Drawing.Size(137, 43);
+            this.txttotaltransactions.TabIndex = 17;
+            this.txttotaltransactions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // Seesumbtn
+            // 
+            this.Seesumbtn.BorderRadius = 26;
+            this.Seesumbtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Seesumbtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Seesumbtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Seesumbtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Seesumbtn.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
+            this.Seesumbtn.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Seesumbtn.ForeColor = System.Drawing.Color.White;
+            this.Seesumbtn.Location = new System.Drawing.Point(27, 558);
+            this.Seesumbtn.Name = "Seesumbtn";
+            this.Seesumbtn.Size = new System.Drawing.Size(202, 56);
+            this.Seesumbtn.TabIndex = 18;
+            this.Seesumbtn.Text = "See Sum";
+            this.Seesumbtn.Click += new System.EventHandler(this.Seesumbtn_Click);
+            // 
             // Dayprint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
+            this.Controls.Add(this.Seesumbtn);
+            this.Controls.Add(this.txttotaltransactions);
+            this.Controls.Add(this.Print);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.guna2DataGridView1);
             this.Name = "Dayprint";
             this.Size = new System.Drawing.Size(859, 699);
@@ -115,5 +176,9 @@
         #endregion
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
+        private DateTimePicker dateTimePicker1;
+        private Guna.UI2.WinForms.Guna2Button Print;
+        private Label txttotaltransactions;
+        private Guna.UI2.WinForms.Guna2Button Seesumbtn;
     }
 }

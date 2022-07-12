@@ -9,6 +9,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
+
 namespace Calma.Control
 {
     public partial class Order_item : UserControl
@@ -99,14 +101,15 @@ namespace Calma.Control
             Int64 price = Int64.Parse(textpriceorder.Text);
             texttotalorder.Text = (quan * price).ToString();
         }
-        protected int n, total = 0;
+        protected double total = 0;
+        protected int n;
 
         int amount;
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
             {
-                if(e.RowIndex < guna2DataGridView1.Rows.Count-1)
+                if (e.RowIndex < guna2DataGridView1.Rows.Count - 1)
                     amount = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
             }
             catch
@@ -120,34 +123,43 @@ namespace Calma.Control
         {
             try
             {
+                
                 guna2DataGridView1.Rows.RemoveAt(this.guna2DataGridView1.SelectedRows[0].Index);
+                if (total >= 0)
+                {
+                    total = total - amount;
+                }
             }
             catch
             {
 
             }
-            total -= amount;
-            txtTotalPrice.Text = +total + " LE";
+            
+           // total -= amount;
+            txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + " LE";
 
         }
 
         private void Print_Click(object sender, EventArgs e)
         {
-            string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
+            if (total > 0)
+            {
+                string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
 
-            SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
-            SqlCommand cmd = new SqlCommand();
-            cmd.Connection = conn;
-            conn.Open();
-            cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + total + ")";
-            cmd.ExecuteNonQuery();
-            conn.Close();
-            total = 0;
-            amount = 0;
-            guna2DataGridView1.Rows.Clear();
-            txtTotalPrice.Text = "LE";
-
+                SqlConnection conn = new SqlConnection();
+                conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
+                SqlCommand cmd = new SqlCommand();
+                cmd.Connection = conn;
+                conn.Open();
+                cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
+                cmd.ExecuteNonQuery();
+                conn.Close();
+                total = 0;
+                amount = 0;
+                guna2DataGridView1.Rows.Clear();
+                txtTotalPrice.Text = "LE";
+                numorder.Value = 0;
+            }
         }
 
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -156,6 +168,16 @@ namespace Calma.Control
         }
 
         private void Order_item_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textpriceorder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtTotalPrice_Click(object sender, EventArgs e)
         {
 
         }
@@ -171,12 +193,17 @@ namespace Calma.Control
                 guna2DataGridView1.Rows[n].Cells[3].Value = texttotalorder.Text;
 
                 total += int.Parse(texttotalorder.Text);
-                txtTotalPrice.Text = +total + "LE";
+                txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "LE";
             }
             else
             {
                 MessageBox.Show("Minimum quantity need to be 1", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+
+        private void txtTotalPrice_Click_1(object sender, EventArgs e)
+        {
+
         }
     }
 }

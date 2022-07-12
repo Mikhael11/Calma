@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.btnOrder = new Guna.UI2.WinForms.Guna2Button();
             this.btnAdd = new Guna.UI2.WinForms.Guna2Button();
             this.btnUpdate = new Guna.UI2.WinForms.Guna2Button();
@@ -106,7 +107,7 @@
             this.btnRemove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.btnRemove.Font = new System.Drawing.Font("Copperplate Gothic Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(23, 477);
+            this.btnRemove.Location = new System.Drawing.Point(23, 468);
             this.btnRemove.Name = "btnRemove";
             this.btnRemove.Size = new System.Drawing.Size(199, 56);
             this.btnRemove.TabIndex = 3;
@@ -173,7 +174,7 @@
             // dayprint1
             // 
             this.dayprint1.BackColor = System.Drawing.Color.AliceBlue;
-            this.dayprint1.Location = new System.Drawing.Point(0, 0);
+            this.dayprint1.Location = new System.Drawing.Point(-3, 0);
             this.dayprint1.Name = "dayprint1";
             this.dayprint1.Size = new System.Drawing.Size(1074, 874);
             this.dayprint1.TabIndex = 4;
@@ -218,6 +219,8 @@
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
