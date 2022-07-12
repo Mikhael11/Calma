@@ -46,9 +46,9 @@
             this.label2.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.label2.Font = new System.Drawing.Font("Cooper Black", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.label2.ForeColor = System.Drawing.Color.Black;
-            this.label2.Location = new System.Drawing.Point(345, 42);
+            this.label2.Location = new System.Drawing.Point(302, 32);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(217, 31);
+            this.label2.Size = new System.Drawing.Size(175, 25);
             this.label2.TabIndex = 6;
             this.label2.Text = "Remove an Item";
             this.label2.Click += new System.EventHandler(this.label2_Click);
@@ -82,13 +82,14 @@
             this.guna2DataGridView1.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(15, 271);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(13, 203);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 29;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(905, 391);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(792, 293);
             this.guna2DataGridView1.TabIndex = 7;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -116,10 +117,11 @@
             // txtsrchforremove
             // 
             this.txtsrchforremove.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.txtsrchforremove.Location = new System.Drawing.Point(35, 202);
+            this.txtsrchforremove.Location = new System.Drawing.Point(31, 152);
+            this.txtsrchforremove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtsrchforremove.Multiline = true;
             this.txtsrchforremove.Name = "txtsrchforremove";
-            this.txtsrchforremove.Size = new System.Drawing.Size(191, 36);
+            this.txtsrchforremove.Size = new System.Drawing.Size(168, 28);
             this.txtsrchforremove.TabIndex = 9;
             this.txtsrchforremove.TextChanged += new System.EventHandler(this.txtsrchforremove_TextChanged);
             // 
@@ -128,14 +130,15 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Comic Sans MS", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.Color.Black;
-            this.label1.Location = new System.Drawing.Point(35, 170);
+            this.label1.Location = new System.Drawing.Point(31, 128);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(123, 29);
+            this.label1.Size = new System.Drawing.Size(98, 23);
             this.label1.TabIndex = 8;
             this.label1.Text = "Item Name";
             // 
             // rmvitembtn
             // 
+<<<<<<< HEAD
             this.rmvitembtn.BorderRadius = 26;
             this.rmvitembtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
             this.rmvitembtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
@@ -150,10 +153,21 @@
             this.rmvitembtn.TabIndex = 16;
             this.rmvitembtn.Text = "Remove";
             this.rmvitembtn.Click += new System.EventHandler(this.rmvitembtn_Click);
+=======
+            this.DltItem.AutoSize = true;
+            this.DltItem.Font = new System.Drawing.Font("Comic Sans MS", 15F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.DltItem.ForeColor = System.Drawing.Color.Black;
+            this.DltItem.Location = new System.Drawing.Point(687, 516);
+            this.DltItem.Name = "DltItem";
+            this.DltItem.Size = new System.Drawing.Size(85, 29);
+            this.DltItem.TabIndex = 11;
+            this.DltItem.Text = "Remove";
+            this.DltItem.Click += new System.EventHandler(this.label4_Click);
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             // 
             // Remove_Item
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AntiqueWhite;
             this.Controls.Add(this.rmvitembtn);
@@ -161,8 +175,9 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.guna2DataGridView1);
             this.Controls.Add(this.label2);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Remove_Item";
-            this.Size = new System.Drawing.Size(944, 741);
+            this.Size = new System.Drawing.Size(826, 556);
             this.Load += new System.EventHandler(this.Remove_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);

@@ -134,20 +134,33 @@ namespace Calma.Control
             {
 
             }
+<<<<<<< HEAD
             
            // total -= amount;
             txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + " LE";
+=======
+            total -= amount;
+            txtTotalPrice.Text = + Math.Ceiling(total + (total * 0.12)) + " LE";
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
 
         }
 
         private void Print_Click(object sender, EventArgs e)
         {
+<<<<<<< HEAD
             if (total > 0)
+=======
+            if(total > 0)
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             {
                 string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
 
                 SqlConnection conn = new SqlConnection();
+<<<<<<< HEAD
                 conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
+=======
+                conn.ConnectionString = "data source =DESKTOP-B73FHQT;database = CalmaDb; integrated security =True";
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 conn.Open();
@@ -193,7 +206,11 @@ namespace Calma.Control
                 guna2DataGridView1.Rows[n].Cells[3].Value = texttotalorder.Text;
 
                 total += int.Parse(texttotalorder.Text);
+<<<<<<< HEAD
                 txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "LE";
+=======
+                txtTotalPrice.Text = + Math.Ceiling(total + (total*0.12)) + "LE";
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             }
             else
             {

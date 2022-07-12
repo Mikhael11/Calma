@@ -33,9 +33,12 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             this.guna2DataGridView1 = new Guna.UI2.WinForms.Guna2DataGridView();
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+<<<<<<< HEAD
             this.Print = new Guna.UI2.WinForms.Guna2Button();
             this.txttotaltransactions = new System.Windows.Forms.Label();
             this.Seesumbtn = new Guna.UI2.WinForms.Guna2Button();
+=======
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -69,14 +72,19 @@
             this.guna2DataGridView1.DefaultCellStyle = dataGridViewCellStyle3;
             this.guna2DataGridView1.EnableHeadersVisualStyles = false;
             this.guna2DataGridView1.GridColor = System.Drawing.Color.FromArgb(((int)(((byte)(231)))), ((int)(((byte)(229)))), ((int)(((byte)(255)))));
-            this.guna2DataGridView1.Location = new System.Drawing.Point(27, 174);
+            this.guna2DataGridView1.Location = new System.Drawing.Point(24, 130);
+            this.guna2DataGridView1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.guna2DataGridView1.Name = "guna2DataGridView1";
             this.guna2DataGridView1.ReadOnly = true;
             this.guna2DataGridView1.RowHeadersVisible = false;
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 29;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+<<<<<<< HEAD
             this.guna2DataGridView1.Size = new System.Drawing.Size(697, 353);
+=======
+            this.guna2DataGridView1.Size = new System.Drawing.Size(713, 209);
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             this.guna2DataGridView1.TabIndex = 0;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -104,6 +112,7 @@
             // 
             // dateTimePicker1
             // 
+<<<<<<< HEAD
             this.dateTimePicker1.Location = new System.Drawing.Point(44, 99);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(272, 27);
@@ -155,18 +164,35 @@
             this.Seesumbtn.Text = "See Sum";
             this.Seesumbtn.Click += new System.EventHandler(this.Seesumbtn_Click);
             // 
+=======
+            this.dateTimePicker1.CustomFormat = "dd/MM/yyyy";
+            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateTimePicker1.Location = new System.Drawing.Point(24, 41);
+            this.dateTimePicker1.MaxDate = new System.DateTime(2200, 12, 31, 0, 0, 0, 0);
+            this.dateTimePicker1.MinDate = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 23);
+            this.dateTimePicker1.TabIndex = 1;
+            this.dateTimePicker1.Value = new System.DateTime(2010, 1, 1, 0, 0, 0, 0);
+            this.dateTimePicker1.ValueChanged += new System.EventHandler(this.dateTimePicker1_ValueChanged);
+            // 
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             // Dayprint
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
+<<<<<<< HEAD
             this.Controls.Add(this.Seesumbtn);
             this.Controls.Add(this.txttotaltransactions);
             this.Controls.Add(this.Print);
+=======
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
             this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.guna2DataGridView1);
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "Dayprint";
-            this.Size = new System.Drawing.Size(859, 699);
+            this.Size = new System.Drawing.Size(752, 524);
             this.Load += new System.EventHandler(this.Dayprint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
@@ -177,8 +203,11 @@
 
         private Guna.UI2.WinForms.Guna2DataGridView guna2DataGridView1;
         private DateTimePicker dateTimePicker1;
+<<<<<<< HEAD
         private Guna.UI2.WinForms.Guna2Button Print;
         private Label txttotaltransactions;
         private Guna.UI2.WinForms.Guna2Button Seesumbtn;
+=======
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
     }
 }

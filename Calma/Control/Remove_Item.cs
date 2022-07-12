@@ -85,5 +85,10 @@ namespace Calma.Control
            
           
         }
+
+        private void txtsrchforremove_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

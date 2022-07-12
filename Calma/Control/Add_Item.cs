@@ -33,8 +33,6 @@ namespace Calma.Control
 
         private void btnAddItem_Click(object sender, EventArgs e)
         {
-            Console.WriteLine(txtItemName.Text);
-            Console.WriteLine(txtCatg.SelectedItem);
             Console.WriteLine(txtItemPrice.Text);
             query = "insert into Items (itname,category,price) values ('" + txtItemName.Text + "','" + txtCatg.Text + "' , '" + txtItemPrice.Text + "')";
             fn.setData(query);

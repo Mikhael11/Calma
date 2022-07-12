@@ -21,7 +21,7 @@ namespace Calma.Control
         }
         public void loaddata()
         {
-            query = "Select * from Transactions";
+            query = "Select * from Transactions where date like'" + DateTime.Now.ToString("dd-MM-yyyy") + "%'";
             DataSet ds = fn.GetData(query);
             guna2DataGridView1.DataSource = ds.Tables[0];
         }
@@ -35,7 +35,6 @@ namespace Calma.Control
         {
             loaddata();
         }
-        int id;
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
@@ -44,8 +43,11 @@ namespace Calma.Control
             //int price = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString());
         }
 
+<<<<<<< HEAD
         
 
+=======
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
         private void dateTimePicker1_ValueChanged(object sender, EventArgs e)
         {
             DateTimePicker senderObject = (DateTimePicker)sender;
@@ -53,6 +55,7 @@ namespace Calma.Control
             DataSet ds = fn.GetData(query);
             guna2DataGridView1.DataSource = ds.Tables[0];
         }
+<<<<<<< HEAD
         double total;
         private void Print_Click(object sender, EventArgs e)
         {
@@ -70,5 +73,7 @@ namespace Calma.Control
             }
             txttotaltransactions.Text = sum.ToString();
         }
+=======
+>>>>>>> 5f4a029fc2cc66b79dc5b8c686dea539c4d38b0f
     }
 }
