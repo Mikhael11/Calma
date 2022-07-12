@@ -20,7 +20,7 @@ namespace Calma.Control
         }
         public void loaddata()
         {
-            query = "Select * from Transactions";
+            query = "Select * from Transactions where date like'" + DateTime.Now.ToString("dd-MM-yyyy") + "%'";
             DataSet ds = fn.GetData(query);
             guna2DataGridView1.DataSource = ds.Tables[0];
         }

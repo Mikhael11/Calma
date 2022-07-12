@@ -31,5 +31,10 @@ namespace Calma.Control
         {
             //DltItem.Text=""
         }
+
+        private void txtsrchforremove_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

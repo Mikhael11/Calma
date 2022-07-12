@@ -99,7 +99,8 @@ namespace Calma.Control
             Int64 price = Int64.Parse(textpriceorder.Text);
             texttotalorder.Text = (quan * price).ToString();
         }
-        protected int n, total = 0;
+        protected double total = 0;
+        protected int n;
 
         int amount;
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -127,7 +128,7 @@ namespace Calma.Control
 
             }
             total -= amount;
-            txtTotalPrice.Text = +total + " LE";
+            txtTotalPrice.Text = + Math.Ceiling(total + (total * 0.12)) + " LE";
 
         }
 
@@ -142,7 +143,7 @@ namespace Calma.Control
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 conn.Open();
-                cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + total + ")";
+                cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
                 cmd.ExecuteNonQuery();
                 conn.Close();
                 total = 0;
@@ -168,6 +169,11 @@ namespace Calma.Control
 
         }
 
+        private void txtTotalPrice_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void btnCard_Click(object sender, EventArgs e)
         {
             if (texttotalorder.Text != "0" && texttotalorder.Text != "")
@@ -179,7 +185,7 @@ namespace Calma.Control
                 guna2DataGridView1.Rows[n].Cells[3].Value = texttotalorder.Text;
 
                 total += int.Parse(texttotalorder.Text);
-                txtTotalPrice.Text = +total + "LE";
+                txtTotalPrice.Text = + Math.Ceiling(total + (total*0.12)) + "LE";
             }
             else
             {
