@@ -64,6 +64,9 @@ namespace Calma
             dayprint1.BringToFront();
         }
 
-        
+        private void dayprint1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

@@ -1,15 +1,18 @@
-﻿using System;
+﻿using DGVPrinterHelper;
+using Microsoft.Reporting.WebForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.Drawing.Printing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-
-
+using static System.Windows.Forms.DataFormats;
+//using Startup useLegacyV2RuntimeActivationPolicy = "true"; 
 
 namespace Calma.Control
 {
@@ -105,6 +108,8 @@ namespace Calma.Control
         protected int n;
 
         int amount;
+        private System.Drawing.Printing.PrintPageEventArgs ee;
+
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -121,10 +126,14 @@ namespace Calma.Control
 
         private void Rmvdata_Click(object sender, EventArgs e)
         {
-            try
+            
+                try
             {
                 
-                guna2DataGridView1.Rows.RemoveAt(this.guna2DataGridView1.SelectedRows[0].Index);
+                
+                    guna2DataGridView1.Rows.RemoveAt(this.guna2DataGridView1.SelectedRows[0].Index);
+                
+
                 if (total > 0)
                 {
                     total = total - amount;
@@ -134,20 +143,65 @@ namespace Calma.Control
             {
 
             }
-            txtTotalPrice.Text = + Math.Ceiling(total + (total * 0.12)) + " LE";
-            txtPrice.Text = +Math.Ceiling(total) + "LE";
-            txtService.Text = +Math.Ceiling(total * 0.12) + "LE";
+            txtTotalPrice.Text = + Math.Ceiling(total + (total * 0.12)) + "";
+            txtPrice.Text = +Math.Ceiling(total) + "";
+            txtService.Text = +Math.Ceiling(total * 0.12) + "";
 
         }
-
+        
         private void Print_Click(object sender, EventArgs e)
         {
+            DGVPrinter printer = new DGVPrinter();
+            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
+            printer.PageNumbers = true;
+            printer.PageNumberInHeader = false;
+            printer.PorportionalColumns = true;
+            printer.HeaderCellAlignment = StringAlignment.Near;
+            printer.Title = "Welcome to Calma";
+            printer.SubTitle = "Calma Cafe";
+            //printer.PrintDataGridView(guna2DataGridView1);
+            Image image =Image.FromFile("D:\\Calma Final\\Calma\\Calma.JPG") ;
+            //printer.ImbeddedImageList.Add(Image.FromFile("D:\\Calma Final\\Calma\\Calma.JPG"));
+            //AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+
+            PrintDocument pdoc = new PrintDocument();
+            Bitmap bitmap1 = new Bitmap("D:\\Calma Final\\Calma\\Calma.JPG");
+            DGVPrinter.ImbeddedImage img1 = new DGVPrinter.ImbeddedImage();
+            img1.theImage = bitmap1; img1.ImageX = 2; img1.ImageY = 2; 
+            img1.ImageAlignment = DGVPrinter.Alignment.Center;
+            img1.ImageLocation = DGVPrinter.Location.Header;
+            //img1.theImage = DGVPrinter.SizeType.Porportional;      
+            printer.ImbeddedImageList.Add(img1);
+            //printer.ColumnWidth = DGVPrinter.ColumnWidthSetting.Porportional;
+            
+            printer.Footer = "Total " + txtTotalPrice;
+            // System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\\your_path_here\\sample.txt");
+            string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm_tt");
+            string pa = ($"~\\printer\\files\\{date1}.txt");
+            
+
+            using (FileStream fs = File.Create(pa))
+            {
+                using (TextWriter tw = new StreamWriter(fs))
+                {
+                    for (int i = 0; i < guna2DataGridView1.Rows.Count - 1; i++)
+                    {
+                        //for (int j = 0; j < guna2DataGridView1.Columns.Count; j++)
+                        //{
+                        tw.WriteLine($"{guna2DataGridView1.Rows[i].Cells[0].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[1].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[2].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[3].Value.ToString()}");
+
+                        //}
+                        //tw.WriteLine("\n");
+                    }
+                    tw.WriteLine(txtPrice.Text+","+txtService.Text + "," + txtTotalPrice.Text);
+                }
+            }
             if (total > 0)
             {
                 string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
 
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source =DESKTOP-B73FHQT;database = CalmaDb; integrated security =True";
+                conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 conn.Open();
@@ -160,13 +214,34 @@ namespace Calma.Control
                 txtTotalPrice.Text = "LE";
                 txtPrice.Text = "LE";
                 txtService.Text = "LE";
+                textnameorder.Text = "";
+                textpriceorder.Text = "";
                 numorder.Value = 0;
             }
         }
 
+      
+
+        private void addphoto(object o, PrintPageEventArgs e)
+        {
+            /*DGVPrinter printer = new DGVPrinter();
+             DGVPrinter.ImbeddedImage img1 = new DGVPrinter.ImbeddedImage();
+             Bitmap bitmap1 = new Bitmap(@"D:\Calma Final\Calma\Calma.JPG");
+             ee.Graphics.DrawImage(bitmap1, 50, 20, bitmap1.Width, bitmap1.Height);
+             img1.theImage = bitmap1; img1.ImageX = 0; img1.ImageY = 10;
+             img1.ImageAlignment = DGVPrinter.Alignment.NotSet;
+             img1.ImageLocation = DGVPrinter.Location.Header;
+             printer.ImbeddedImageList.Add(img1);*/
+            System.Drawing.Image img = System.Drawing.Image.FromFile("D:\\Calma Final\\Calma\\Calma.JPG");
+            Point pt = new Point(2, 1);
+            e.Graphics.DrawImage(img, pt);
+        }
         private void guna2DataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
+            if (e.RowIndex < guna2DataGridView1.Rows.Count - 1)
+            {
+                amount = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+            }
         }
 
         private void Order_item_Load(object sender, EventArgs e)
@@ -183,6 +258,8 @@ namespace Calma.Control
         {
 
         }
+        ReportDataSource rds = new ReportDataSource();
+       
 
         private void btnCard_Click(object sender, EventArgs e)
         {
@@ -195,9 +272,23 @@ namespace Calma.Control
                 guna2DataGridView1.Rows[n].Cells[3].Value = texttotalorder.Text;
 
                 total += int.Parse(texttotalorder.Text);
-                txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "LE";
-                txtPrice.Text = +Math.Ceiling(total) + "LE";
-                txtService.Text = +Math.Ceiling(total * 0.12) + "LE";
+                txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "";
+                txtPrice.Text = +Math.Ceiling(total) + "";
+                txtService.Text = +Math.Ceiling(total * 0.12) + "";
+                /* ReportDataSource rds = new ReportDataSource();
+                 rds.Name = "DataSet1";
+                 rds.Value = guna2DataGridView1.DataSource;
+                 ReportViewer rv = new ReportViewer();
+                 Form frm = new Form();
+                 rv.LocalReport.DataSources.Add(rds);
+                 rv.LocalReport.ReportEmbeddedResource = "Calma.Report1.rdlc";
+                 */
+                //CrystalReport1 rpt = new CrystalReport1();
+                //rpt.SetDataSource(guna2DataGridView1.DataSource);
+
+                numorder.Value = 0;
+                textnameorder.Text = "";
+                textpriceorder.Text = "";
             }
             else
             {
@@ -211,6 +302,16 @@ namespace Calma.Control
         }
 
         private void label11_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Reportbtn_Click(object sender, EventArgs e)
+        {
+        
+        }
+
+        private void txtService_Click(object sender, EventArgs e)
         {
 
         }

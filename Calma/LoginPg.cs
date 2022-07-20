@@ -19,7 +19,7 @@ namespace Calma
 
         private void Login_Load(object sender, EventArgs e)
         {
-
+            expiry();
         }
 
         private void backgroundWorker3_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -29,17 +29,24 @@ namespace Calma
 
         private void BtnSubmit_Click(object sender, EventArgs e)
         {
-            Dashboard ds = new Dashboard();
+           /* Dashboard ds = new Dashboard();
             ds.Show();
-            this.Hide();
-            /* if (txtName.Text == "Calma" && txtPass.Text == "Calma2022")
+            this.Hide();*/
+             if (txtName.Text == "Calma" && txtPass.Text == "Calma2022")
              {
                  Dashboard ds = new Dashboard();
                  ds.Show();
                  this.Hide();
-             }*/
+             }
         }
-
+        private void expiry()
+        {
+            if (DateTime.Now > new DateTime(2022, 12, 29)) //year, month, day in order
+            {
+                MessageBox.Show("The form has expired.  Please update");
+                Application.Exit();
+            }
+        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
 

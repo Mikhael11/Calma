@@ -13,12 +13,12 @@ namespace Calma
         protected SqlConnection GetConnection()
         {
             SqlConnection conn = new SqlConnection();
-            conn.ConnectionString = "data source =DESKTOP-B73FHQT;database = CalmaDb; integrated security =True";
+            conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
             return conn;
         }
         public DataSet GetData(String query)
         {
-            using (SqlConnection con = new SqlConnection("data source =DESKTOP-B73FHQT;database = CalmaDb; integrated security =True"))
+            using (SqlConnection con = new SqlConnection("data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True"))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {

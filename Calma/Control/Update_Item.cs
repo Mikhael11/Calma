@@ -58,13 +58,16 @@ namespace Calma.Control
         int id;
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
-            String category = guna2DataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
-            String itname = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
-            int price = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
-            txtcatgolditem.Text = category;
-            txtnewitem.Text = itname;
-            txtnewitemprice.Text = price.ToString();
+            if (e.RowIndex < guna2DataGridView1.Rows.Count - 1)
+            {
+                id = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[0].Value.ToString());
+                String category = guna2DataGridView1.Rows[e.RowIndex].Cells[2].Value.ToString();
+                String itname = guna2DataGridView1.Rows[e.RowIndex].Cells[1].Value.ToString();
+                int price = int.Parse(guna2DataGridView1.Rows[e.RowIndex].Cells[3].Value.ToString());
+                txtcatgolditem.Text = category;
+                txtnewitem.Text = itname;
+                txtnewitemprice.Text = price.ToString();
+            }
            
                 
                 }

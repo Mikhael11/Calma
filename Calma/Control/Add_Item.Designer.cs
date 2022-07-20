@@ -80,10 +80,19 @@
             this.txtCatg.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(68)))), ((int)(((byte)(88)))), ((int)(((byte)(112)))));
             this.txtCatg.ItemHeight = 30;
             this.txtCatg.Items.AddRange(new object[] {
-            "Cafe",
-            "Food",
+            "Hot Drinks",
             "Cold Drinks",
-            "Sweets"});
+            "Moctails",
+            "Healthy Moctails",
+            "Soft Drinks",
+            "MilkShakes",
+            "Smoothies",
+            "Special Smoothies",
+            "Fresh Juice",
+            "Mojito",
+            "Extra Flavors",
+            "Deserts",
+            "BITES"});
             this.txtCatg.Location = new System.Drawing.Point(56, 160);
             this.txtCatg.Name = "txtCatg";
             this.txtCatg.Size = new System.Drawing.Size(212, 36);

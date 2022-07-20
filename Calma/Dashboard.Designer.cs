@@ -176,8 +176,9 @@
             this.dayprint1.BackColor = System.Drawing.Color.AliceBlue;
             this.dayprint1.Location = new System.Drawing.Point(-3, 0);
             this.dayprint1.Name = "dayprint1";
-            this.dayprint1.Size = new System.Drawing.Size(1074, 874);
+            this.dayprint1.Size = new System.Drawing.Size(983, 943);
             this.dayprint1.TabIndex = 4;
+            this.dayprint1.Load += new System.EventHandler(this.dayprint1_Load);
             // 
             // remove_Item1
             // 
@@ -215,7 +216,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(1192, 761);
+            this.ClientSize = new System.Drawing.Size(1192, 816);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
