@@ -3,6 +3,7 @@ using Microsoft.Reporting.WebForms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -48,7 +49,7 @@ namespace Calma.Control
             String category = combocatg.Text;
             query = "Select itname from items Where category = '" + category + "' and itname like'" + txtSrch.Text + "%'";
 
-            using (SqlConnection con = new SqlConnection("data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True"))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["database"].ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
@@ -201,7 +202,7 @@ namespace Calma.Control
                 string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
 
                 SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = "data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True";
+                conn.ConnectionString = ConfigurationManager.ConnectionStrings["database"].ConnectionString;
                 SqlCommand cmd = new SqlCommand();
                 cmd.Connection = conn;
                 conn.Open();

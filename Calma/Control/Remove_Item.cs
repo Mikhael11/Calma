@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
@@ -45,7 +46,7 @@ namespace Calma.Control
             query = "Select * from Items Where itname like'" + txtsearchitem.Text + "%'";
             //  DataSet ds = fn.GetData(query);
             //guna2DataGridView1.DataSource = ds.Tables[0];
-            using (SqlConnection con = new SqlConnection("data source =MIKHAEL-PC\\SQLEXPRESS;database = CalmaDb; integrated security =True"))
+            using (SqlConnection con = new SqlConnection(ConfigurationManager.ConnectionStrings["database"].ConnectionString))
             {
                 using (SqlCommand cmd = new SqlCommand(query, con))
                 {
