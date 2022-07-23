@@ -15,7 +15,7 @@ namespace Calma.Control
     public partial class Remove_Item : UserControl
     {
         functions fn = new functions();
-        String query;
+        String query = "";
         public Remove_Item()
         {
             InitializeComponent();
@@ -29,11 +29,6 @@ namespace Calma.Control
         private void label4_Click(object sender, EventArgs e)
         {
 
-        }
-
-        private void Remove_Item_Load(object sender, EventArgs e)
-        {
-            loaddata();
         }
         public void loaddata()
         {
@@ -95,8 +90,5 @@ namespace Calma.Control
         {
 
         }
-
-
-
     }
 }

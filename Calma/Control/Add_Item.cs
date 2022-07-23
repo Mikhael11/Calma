@@ -13,7 +13,7 @@ namespace Calma.Control
     public partial class Add_Item : UserControl
     {
         functions fn=new functions();
-        string query;
+        string query = "";
 
 
         public Add_Item()

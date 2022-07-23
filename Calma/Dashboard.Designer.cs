@@ -57,9 +57,10 @@
             this.btnOrder.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.btnOrder.Font = new System.Drawing.Font("Copperplate Gothic Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnOrder.ForeColor = System.Drawing.Color.White;
-            this.btnOrder.Location = new System.Drawing.Point(23, 70);
+            this.btnOrder.Location = new System.Drawing.Point(20, 52);
+            this.btnOrder.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnOrder.Name = "btnOrder";
-            this.btnOrder.Size = new System.Drawing.Size(199, 56);
+            this.btnOrder.Size = new System.Drawing.Size(174, 42);
             this.btnOrder.TabIndex = 0;
             this.btnOrder.Text = "Order";
             this.btnOrder.Click += new System.EventHandler(this.btnOrder_Click);
@@ -74,9 +75,10 @@
             this.btnAdd.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.btnAdd.Font = new System.Drawing.Font("Copperplate Gothic Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.Location = new System.Drawing.Point(23, 212);
+            this.btnAdd.Location = new System.Drawing.Point(20, 159);
+            this.btnAdd.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Size = new System.Drawing.Size(199, 56);
+            this.btnAdd.Size = new System.Drawing.Size(174, 42);
             this.btnAdd.TabIndex = 1;
             this.btnAdd.Text = "ADD";
             this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
@@ -91,9 +93,10 @@
             this.btnUpdate.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.btnUpdate.Font = new System.Drawing.Font("Copperplate Gothic Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(23, 349);
+            this.btnUpdate.Location = new System.Drawing.Point(20, 262);
+            this.btnUpdate.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnUpdate.Name = "btnUpdate";
-            this.btnUpdate.Size = new System.Drawing.Size(199, 56);
+            this.btnUpdate.Size = new System.Drawing.Size(174, 42);
             this.btnUpdate.TabIndex = 2;
             this.btnUpdate.Text = "UPDATE";
             this.btnUpdate.Click += new System.EventHandler(this.btnUpdate_Click);
@@ -108,9 +111,10 @@
             this.btnRemove.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.btnRemove.Font = new System.Drawing.Font("Copperplate Gothic Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.btnRemove.ForeColor = System.Drawing.Color.White;
-            this.btnRemove.Location = new System.Drawing.Point(23, 468);
+            this.btnRemove.Location = new System.Drawing.Point(20, 351);
+            this.btnRemove.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.btnRemove.Name = "btnRemove";
-            this.btnRemove.Size = new System.Drawing.Size(199, 56);
+            this.btnRemove.Size = new System.Drawing.Size(174, 42);
             this.btnRemove.TabIndex = 3;
             this.btnRemove.Text = "REMOVE";
             this.btnRemove.Click += new System.EventHandler(this.btnRemove_Click);
@@ -124,9 +128,10 @@
             this.panel1.Controls.Add(this.btnUpdate);
             this.panel1.Controls.Add(this.btnAdd);
             this.panel1.Controls.Add(this.btnOrder);
-            this.panel1.Location = new System.Drawing.Point(12, 15);
+            this.panel1.Location = new System.Drawing.Point(10, 11);
+            this.panel1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(206, 734);
+            this.panel1.Size = new System.Drawing.Size(180, 550);
             this.panel1.TabIndex = 0;
             // 
             // Printdaily
@@ -139,9 +144,10 @@
             this.Printdaily.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.Printdaily.Font = new System.Drawing.Font("Copperplate Gothic Bold", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
             this.Printdaily.ForeColor = System.Drawing.Color.White;
-            this.Printdaily.Location = new System.Drawing.Point(23, 583);
+            this.Printdaily.Location = new System.Drawing.Point(20, 437);
+            this.Printdaily.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Printdaily.Name = "Printdaily";
-            this.Printdaily.Size = new System.Drawing.Size(199, 56);
+            this.Printdaily.Size = new System.Drawing.Size(174, 42);
             this.Printdaily.TabIndex = 5;
             this.Printdaily.Text = "Print daily";
             this.Printdaily.Click += new System.EventHandler(this.Printdaily_Click);
@@ -151,9 +157,9 @@
             this.Logout.AutoSize = true;
             this.Logout.Font = new System.Drawing.Font("Segoe UI Historic", 12F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point);
             this.Logout.LinkColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
-            this.Logout.Location = new System.Drawing.Point(59, 691);
+            this.Logout.Location = new System.Drawing.Point(52, 518);
             this.Logout.Name = "Logout";
-            this.Logout.Size = new System.Drawing.Size(90, 28);
+            this.Logout.Size = new System.Drawing.Size(73, 21);
             this.Logout.TabIndex = 4;
             this.Logout.TabStop = true;
             this.Logout.Text = "Log Out";
@@ -167,10 +173,11 @@
             this.Exit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
             this.Exit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.Exit.ForeColor = System.Drawing.Color.White;
-            this.Exit.Location = new System.Drawing.Point(1143, 12);
+            this.Exit.Location = new System.Drawing.Point(1000, 9);
+            this.Exit.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Exit.Name = "Exit";
             this.Exit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
-            this.Exit.Size = new System.Drawing.Size(46, 44);
+            this.Exit.Size = new System.Drawing.Size(40, 33);
             this.Exit.TabIndex = 1;
             this.Exit.Text = "X";
             this.Exit.Click += new System.EventHandler(this.Exit_Click);
@@ -183,63 +190,70 @@
             this.panel2.Controls.Add(this.update_Item1);
             this.panel2.Controls.Add(this.order_item1);
             this.panel2.Controls.Add(this.add_Item1);
-            this.panel2.Location = new System.Drawing.Point(224, 15);
+            this.panel2.Location = new System.Drawing.Point(196, 11);
+            this.panel2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(974, 765);
+            this.panel2.Size = new System.Drawing.Size(852, 574);
             this.panel2.TabIndex = 0;
             // 
             // dayprint1
             // 
             this.dayprint1.BackColor = System.Drawing.Color.AliceBlue;
             this.dayprint1.Location = new System.Drawing.Point(0, 0);
+            this.dayprint1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dayprint1.Name = "dayprint1";
-            this.dayprint1.Size = new System.Drawing.Size(983, 943);
+            this.dayprint1.Size = new System.Drawing.Size(860, 707);
             this.dayprint1.TabIndex = 4;
             this.dayprint1.Load += new System.EventHandler(this.dayprint1_Load);
             // 
             // remove_Item1
             // 
             this.remove_Item1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.remove_Item1.Location = new System.Drawing.Point(0, 3);
+            this.remove_Item1.Location = new System.Drawing.Point(0, 2);
+            this.remove_Item1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.remove_Item1.Name = "remove_Item1";
-            this.remove_Item1.Size = new System.Drawing.Size(974, 755);
+            this.remove_Item1.Size = new System.Drawing.Size(852, 566);
             this.remove_Item1.TabIndex = 3;
             this.remove_Item1.Load += new System.EventHandler(this.remove_Item1_Load);
             // 
             // update_Item1
             // 
             this.update_Item1.Location = new System.Drawing.Point(0, 0);
+            this.update_Item1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.update_Item1.Name = "update_Item1";
-            this.update_Item1.Size = new System.Drawing.Size(986, 758);
+            this.update_Item1.Size = new System.Drawing.Size(863, 568);
             this.update_Item1.TabIndex = 2;
             // 
             // order_item1
             // 
             this.order_item1.BackColor = System.Drawing.SystemColors.ButtonFace;
             this.order_item1.Location = new System.Drawing.Point(0, 0);
+            this.order_item1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.order_item1.Name = "order_item1";
-            this.order_item1.Size = new System.Drawing.Size(971, 778);
+            this.order_item1.Size = new System.Drawing.Size(850, 584);
             this.order_item1.TabIndex = 1;
             // 
             // add_Item1
             // 
             this.add_Item1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.add_Item1.Location = new System.Drawing.Point(-6, -3);
+            this.add_Item1.Location = new System.Drawing.Point(-5, -2);
+            this.add_Item1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.add_Item1.Name = "add_Item1";
-            this.add_Item1.Size = new System.Drawing.Size(971, 765);
+            this.add_Item1.Size = new System.Drawing.Size(850, 574);
             this.add_Item1.TabIndex = 0;
             // 
             // Dashboard
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
-            this.ClientSize = new System.Drawing.Size(1192, 816);
+            this.ClientSize = new System.Drawing.Size(1043, 591);
             this.Controls.Add(this.Exit);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.MaximizeBox = false;
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

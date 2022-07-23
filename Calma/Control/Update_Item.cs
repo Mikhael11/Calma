@@ -15,18 +15,11 @@ namespace Calma.Control
     public partial class Update_Item : UserControl
     {
         functions fn=new functions();
-        String query;
+        String query = "";
 
         public Update_Item()
         {
             InitializeComponent();
-        }
-
-        private void Update_Item_Load(object sender, EventArgs e)
-        {
-            
-            loaddata();
-
         }
         public void loaddata()
         {

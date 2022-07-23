@@ -144,7 +144,6 @@
             this.Controls.Add(this.label2);
             this.Name = "Remove_Item";
             this.Size = new System.Drawing.Size(944, 741);
-            this.Load += new System.EventHandler(this.Remove_Item_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
