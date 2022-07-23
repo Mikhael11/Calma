@@ -55,7 +55,8 @@ namespace Calma.Control
             
             DGVPrinter printer = new DGVPrinter();
             printer.PrintDataGridView(guna2DataGridView1);
-            printer.Footer = "total cost in the day = " + txttotaltransactions;
+            printer.Title = txttotaltransactions.Text;
+            
         }
 
         private void Seesumbtn_Click(object sender, EventArgs e)
@@ -66,6 +67,7 @@ namespace Calma.Control
                 sum += Convert.ToInt32(guna2DataGridView1.Rows[i].Cells[2].Value);
             }
             txttotaltransactions.Text = sum.ToString();
+            label1.Text = sum.ToString();
         }
     }
 }

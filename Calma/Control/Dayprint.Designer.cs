@@ -36,6 +36,7 @@
             this.Print = new Guna.UI2.WinForms.Guna2Button();
             this.txttotaltransactions = new System.Windows.Forms.Label();
             this.Seesumbtn = new Guna.UI2.WinForms.Guna2Button();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -76,7 +77,7 @@
             this.guna2DataGridView1.RowHeadersWidth = 51;
             this.guna2DataGridView1.RowTemplate.Height = 29;
             this.guna2DataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.guna2DataGridView1.Size = new System.Drawing.Size(797, 471);
+            this.guna2DataGridView1.Size = new System.Drawing.Size(711, 471);
             this.guna2DataGridView1.TabIndex = 0;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.BackColor = System.Drawing.Color.White;
             this.guna2DataGridView1.ThemeStyle.AlternatingRowsStyle.Font = null;
@@ -158,11 +159,21 @@
             this.Seesumbtn.Text = "See Sum";
             this.Seesumbtn.Click += new System.EventHandler(this.Seesumbtn_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(378, 657);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(50, 20);
+            this.label1.TabIndex = 19;
+            this.label1.Text = "label1";
+            // 
             // Dayprint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.Seesumbtn);
             this.Controls.Add(this.txttotaltransactions);
             this.Controls.Add(this.Print);
@@ -173,6 +184,7 @@
             this.Load += new System.EventHandler(this.Dayprint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -183,5 +195,6 @@
         private Guna.UI2.WinForms.Guna2Button Print;
         private Label txttotaltransactions;
         private Guna.UI2.WinForms.Guna2Button Seesumbtn;
+        private Label label1;
     }
 }

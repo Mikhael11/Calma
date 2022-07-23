@@ -178,8 +178,10 @@ namespace Calma.Control
             printer.Footer = "Total " + txtTotalPrice;
             // System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\\your_path_here\\sample.txt");
             string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm_tt");
-            string pa = ($"~\\printer\\files\\{date1}.txt");
-            
+            string pa = ($"D:\\printer\\files{date1}.txt");
+            query = "Select count(*) as count from Transactions where date like '%-07-2022%'";
+            var ds = fn.GetData(query);
+            var countOfItems = ds.Tables[0].Rows[0][0].ToString();
 
             using (FileStream fs = File.Create(pa))
             {
@@ -194,7 +196,7 @@ namespace Calma.Control
                         //}
                         //tw.WriteLine("\n");
                     }
-                    tw.WriteLine(txtPrice.Text+","+txtService.Text + "," + txtTotalPrice.Text);
+                    tw.WriteLine(countOfItems+','+txtPrice.Text+","+txtService.Text + "," + txtTotalPrice.Text);
                 }
             }
             if (total > 0)

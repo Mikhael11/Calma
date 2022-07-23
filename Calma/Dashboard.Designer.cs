@@ -36,6 +36,7 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.Printdaily = new Guna.UI2.WinForms.Guna2Button();
             this.Logout = new System.Windows.Forms.LinkLabel();
+            this.Exit = new Guna.UI2.WinForms.Guna2CircleButton();
             this.panel2 = new System.Windows.Forms.Panel();
             this.dayprint1 = new Calma.Control.Dayprint();
             this.remove_Item1 = new Calma.Control.Remove_Item();
@@ -158,6 +159,22 @@
             this.Logout.Text = "Log Out";
             this.Logout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Logout_LinkClicked);
             // 
+            // Exit
+            // 
+            this.Exit.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Exit.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Exit.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Exit.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Exit.Font = new System.Drawing.Font("Segoe UI", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Exit.ForeColor = System.Drawing.Color.White;
+            this.Exit.Location = new System.Drawing.Point(1143, 12);
+            this.Exit.Name = "Exit";
+            this.Exit.ShadowDecoration.Mode = Guna.UI2.WinForms.Enums.ShadowMode.Circle;
+            this.Exit.Size = new System.Drawing.Size(46, 44);
+            this.Exit.TabIndex = 1;
+            this.Exit.Text = "X";
+            this.Exit.Click += new System.EventHandler(this.Exit_Click);
+            // 
             // panel2
             // 
             this.panel2.BackColor = System.Drawing.Color.LightSteelBlue;
@@ -166,7 +183,7 @@
             this.panel2.Controls.Add(this.update_Item1);
             this.panel2.Controls.Add(this.order_item1);
             this.panel2.Controls.Add(this.add_Item1);
-            this.panel2.Location = new System.Drawing.Point(224, 12);
+            this.panel2.Location = new System.Drawing.Point(224, 15);
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(974, 765);
             this.panel2.TabIndex = 0;
@@ -174,7 +191,7 @@
             // dayprint1
             // 
             this.dayprint1.BackColor = System.Drawing.Color.AliceBlue;
-            this.dayprint1.Location = new System.Drawing.Point(-3, 0);
+            this.dayprint1.Location = new System.Drawing.Point(0, 0);
             this.dayprint1.Name = "dayprint1";
             this.dayprint1.Size = new System.Drawing.Size(983, 943);
             this.dayprint1.TabIndex = 4;
@@ -183,10 +200,11 @@
             // remove_Item1
             // 
             this.remove_Item1.BackColor = System.Drawing.Color.AntiqueWhite;
-            this.remove_Item1.Location = new System.Drawing.Point(-3, 0);
+            this.remove_Item1.Location = new System.Drawing.Point(0, 3);
             this.remove_Item1.Name = "remove_Item1";
             this.remove_Item1.Size = new System.Drawing.Size(974, 755);
             this.remove_Item1.TabIndex = 3;
+            this.remove_Item1.Load += new System.EventHandler(this.remove_Item1_Load);
             // 
             // update_Item1
             // 
@@ -206,7 +224,7 @@
             // add_Item1
             // 
             this.add_Item1.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
-            this.add_Item1.Location = new System.Drawing.Point(0, 3);
+            this.add_Item1.Location = new System.Drawing.Point(-6, -3);
             this.add_Item1.Name = "add_Item1";
             this.add_Item1.Size = new System.Drawing.Size(971, 765);
             this.add_Item1.TabIndex = 0;
@@ -217,9 +235,10 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
             this.ClientSize = new System.Drawing.Size(1192, 816);
+            this.Controls.Add(this.Exit);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Dashboard";
@@ -244,9 +263,10 @@
         private Panel panel2;
         private Control.Add_Item add_Item1;
         private Control.Order_item order_item1;
-        private Control.Update_Item update_Item1;
-        private Control.Remove_Item remove_Item1;
         private Guna.UI2.WinForms.Guna2Button Printdaily;
         private Control.Dayprint dayprint1;
+        private Guna.UI2.WinForms.Guna2CircleButton Exit;
+        private Control.Remove_Item remove_Item1;
+        private Control.Update_Item update_Item1;
     }
 }

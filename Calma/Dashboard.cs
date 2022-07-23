@@ -29,6 +29,7 @@ namespace Calma
         private void btnRemove_Click(object sender, EventArgs e)
         {
             remove_Item1.Visible = true;
+            
             remove_Item1.BringToFront();
         }
 
@@ -54,6 +55,7 @@ namespace Calma
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             update_Item1.Visible=true;
+            update_Item1.loaddata();
             update_Item1.BringToFront();
         }
 
@@ -67,6 +69,21 @@ namespace Calma
         private void dayprint1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void Exit_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void remove_Item1_Load(object sender, EventArgs e)
+        {
+            remove_Item1.loaddata();
         }
     }
 }
