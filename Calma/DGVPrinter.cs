@@ -2007,7 +2007,6 @@ namespace DGVPrinterHelper //AllocationRequest
                 // Set the default column styles where we've not been given an override
                 if (!ColumnStyles.ContainsKey(col.Name))
                     ColumnStyles[col.Name] = dgv.Columns[col.Name].InheritedStyle;
-
                 // Set the default column header styles where we don't have an override
                 if (!ColumnHeaderStyles.ContainsKey(col.Name))
                     ColumnHeaderStyles[col.Name] = dgv.Columns[col.Name].HeaderCell.InheritedStyle;

@@ -54,6 +54,7 @@ namespace Calma
         private void btnUpdate_Click(object sender, EventArgs e)
         {
             update_Item1.Visible=true;
+            update_Item1.loaddata();
             update_Item1.BringToFront();
         }
 

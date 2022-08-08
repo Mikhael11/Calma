@@ -38,6 +38,12 @@ namespace Calma
                  ds.Show();
                  this.Hide();
              }
+            else if (txtName.Text == "steven" && txtPass.Text == "steven98")
+            {
+                Mytransaction my = new Mytransaction();
+                my.Show();
+                this.Hide();
+            }
         }
         private void expiry()
         {

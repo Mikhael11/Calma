@@ -36,7 +36,7 @@
             this.Print = new Guna.UI2.WinForms.Guna2Button();
             this.txttotaltransactions = new System.Windows.Forms.Label();
             this.Seesumbtn = new Guna.UI2.WinForms.Guna2Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.Dlttrans = new Guna.UI2.WinForms.Guna2Button();
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -159,21 +159,30 @@
             this.Seesumbtn.Text = "See Sum";
             this.Seesumbtn.Click += new System.EventHandler(this.Seesumbtn_Click);
             // 
-            // label1
+            // Dlttrans
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(378, 657);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(50, 20);
-            this.label1.TabIndex = 19;
-            this.label1.Text = "label1";
+            this.Dlttrans.BorderRadius = 26;
+            this.Dlttrans.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Dlttrans.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Dlttrans.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Dlttrans.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Dlttrans.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(112)))), ((int)(((byte)(71)))), ((int)(((byte)(41)))));
+            this.Dlttrans.Font = new System.Drawing.Font("Corbel", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Dlttrans.ForeColor = System.Drawing.Color.White;
+            this.Dlttrans.Location = new System.Drawing.Point(43, 690);
+            this.Dlttrans.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Dlttrans.Name = "Dlttrans";
+            this.Dlttrans.Size = new System.Drawing.Size(231, 75);
+            this.Dlttrans.TabIndex = 20;
+            this.Dlttrans.Text = "Remove";
+            this.Dlttrans.Click += new System.EventHandler(this.Dlttrans_Click);
             // 
             // Dayprint
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.AliceBlue;
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.Dlttrans);
             this.Controls.Add(this.Seesumbtn);
             this.Controls.Add(this.txttotaltransactions);
             this.Controls.Add(this.Print);
@@ -184,7 +193,6 @@
             this.Load += new System.EventHandler(this.Dayprint_Load);
             ((System.ComponentModel.ISupportInitialize)(this.guna2DataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -195,6 +203,6 @@
         private Guna.UI2.WinForms.Guna2Button Print;
         private Label txttotaltransactions;
         private Guna.UI2.WinForms.Guna2Button Seesumbtn;
-        private Label label1;
+        private Guna.UI2.WinForms.Guna2Button Dlttrans;
     }
 }

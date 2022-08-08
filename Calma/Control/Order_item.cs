@@ -152,33 +152,13 @@ namespace Calma.Control
         
         private void Print_Click(object sender, EventArgs e)
         {
-            DGVPrinter printer = new DGVPrinter();
-            printer.SubTitleFormatFlags = StringFormatFlags.LineLimit | StringFormatFlags.NoClip;
-            printer.PageNumbers = true;
-            printer.PageNumberInHeader = false;
-            printer.PorportionalColumns = true;
-            printer.HeaderCellAlignment = StringAlignment.Near;
-            printer.Title = "Welcome to Calma";
-            printer.SubTitle = "Calma Cafe";
-            //printer.PrintDataGridView(guna2DataGridView1);
-            Image image =Image.FromFile("D:\\Calma Final\\Calma\\Calma.JPG") ;
-            //printer.ImbeddedImageList.Add(Image.FromFile("D:\\Calma Final\\Calma\\Calma.JPG"));
-            //AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
-
-            PrintDocument pdoc = new PrintDocument();
-            Bitmap bitmap1 = new Bitmap("D:\\Calma Final\\Calma\\Calma.JPG");
-            DGVPrinter.ImbeddedImage img1 = new DGVPrinter.ImbeddedImage();
-            img1.theImage = bitmap1; img1.ImageX = 2; img1.ImageY = 2; 
-            img1.ImageAlignment = DGVPrinter.Alignment.Center;
-            img1.ImageLocation = DGVPrinter.Location.Header;
-            //img1.theImage = DGVPrinter.SizeType.Porportional;      
-            printer.ImbeddedImageList.Add(img1);
-            //printer.ColumnWidth = DGVPrinter.ColumnWidthSetting.Porportional;
             
-            printer.Footer = "Total " + txtTotalPrice;
+            
+            
+            //printer.Footer = "Total " + txtTotalPrice;
             // System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\\your_path_here\\sample.txt");
             string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm_tt");
-            string pa = ($"D:\\printer\\files{date1}.txt");
+            string pa = ($"C:\\printer\\files\\{date1}.txt");
             query = "Select count(*) as count from Transactions where date like '%-07-2022%'";
             var ds = fn.GetData(query);
             var countOfItems = ds.Tables[0].Rows[0][0].ToString();
@@ -196,7 +176,7 @@ namespace Calma.Control
                         //}
                         //tw.WriteLine("\n");
                     }
-                    tw.WriteLine(countOfItems+','+txtPrice.Text+","+txtService.Text + "," + txtTotalPrice.Text);
+                    tw.WriteLine(countOfItems+','+txtPrice.Text);
                 }
             }
             if (total > 0)
@@ -206,10 +186,14 @@ namespace Calma.Control
                 SqlConnection conn = new SqlConnection();
                 conn.ConnectionString = ConfigurationManager.ConnectionStrings["database"].ConnectionString;
                 SqlCommand cmd = new SqlCommand();
+                SqlCommand cmd2 = new SqlCommand();
                 cmd.Connection = conn;
+                cmd2.Connection = conn;
                 conn.Open();
                 cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
+                cmd2.CommandText = "INSERT INTO T3 (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
                 cmd.ExecuteNonQuery();
+                cmd2.ExecuteNonQuery();
                 conn.Close();
                 total = 0;
                 amount = 0;
