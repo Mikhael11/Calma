@@ -36,6 +36,9 @@ namespace Calma.Control
             Console.WriteLine(txtItemPrice.Text);
             query = "insert into Items (itname,category,price) values ('" + txtItemName.Text + "','" + txtCatg.Text + "' , '" + txtItemPrice.Text + "')";
             fn.setData(query);
+            txtItemName.Clear();
+            txtItemPrice.Clear();
+            
 
         }
         public void clearAll()
@@ -48,6 +51,17 @@ namespace Calma.Control
         private void label4_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnaddcatg_Click(object sender, EventArgs e)
+        {
+            txtCatg.Items.Add(addtxtcat.Text);
+           
+        }
+
+        private void Rmvbtncatg_Click(object sender, EventArgs e)
+        {
+            txtCatg.Items.Remove(addtxtcat.Text);
         }
     }
 }

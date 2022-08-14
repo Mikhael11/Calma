@@ -36,13 +36,17 @@
             this.txtItemPrice = new System.Windows.Forms.TextBox();
             this.btnAddItem = new Guna.UI2.WinForms.Guna2Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.addtxtcat = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.btnaddcatg = new Guna.UI2.WinForms.Guna2Button();
+            this.Rmvbtncatg = new Guna.UI2.WinForms.Guna2Button();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(44, 129);
+            this.label1.Location = new System.Drawing.Point(366, 129);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(94, 28);
             this.label1.TabIndex = 0;
@@ -53,7 +57,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(44, 303);
+            this.label2.Location = new System.Drawing.Point(366, 318);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(66, 28);
             this.label2.TabIndex = 1;
@@ -63,7 +67,7 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(47, 512);
+            this.label3.Location = new System.Drawing.Point(369, 512);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(56, 28);
             this.label3.TabIndex = 2;
@@ -92,8 +96,11 @@
             "Mojito",
             "Extra Flavors",
             "Deserts",
-            "BITES"});
-            this.txtCatg.Location = new System.Drawing.Point(56, 160);
+            "BITES",
+            "Fries",
+            "Sandwiches",
+            "Meals"});
+            this.txtCatg.Location = new System.Drawing.Point(378, 160);
             this.txtCatg.Name = "txtCatg";
             this.txtCatg.Size = new System.Drawing.Size(212, 36);
             this.txtCatg.Style = Guna.UI2.WinForms.Enums.TextBoxStyle.Material;
@@ -102,7 +109,7 @@
             // 
             // txtItemName
             // 
-            this.txtItemName.Location = new System.Drawing.Point(56, 335);
+            this.txtItemName.Location = new System.Drawing.Point(378, 350);
             this.txtItemName.Multiline = true;
             this.txtItemName.Name = "txtItemName";
             this.txtItemName.Size = new System.Drawing.Size(212, 34);
@@ -110,7 +117,7 @@
             // 
             // txtItemPrice
             // 
-            this.txtItemPrice.Location = new System.Drawing.Point(56, 540);
+            this.txtItemPrice.Location = new System.Drawing.Point(378, 540);
             this.txtItemPrice.Multiline = true;
             this.txtItemPrice.Name = "txtItemPrice";
             this.txtItemPrice.Size = new System.Drawing.Size(212, 34);
@@ -145,11 +152,67 @@
             this.label4.Text = "Add New Item";
             this.label4.Click += new System.EventHandler(this.label4_Click);
             // 
+            // addtxtcat
+            // 
+            this.addtxtcat.Location = new System.Drawing.Point(20, 162);
+            this.addtxtcat.Multiline = true;
+            this.addtxtcat.Name = "addtxtcat";
+            this.addtxtcat.Size = new System.Drawing.Size(212, 34);
+            this.addtxtcat.TabIndex = 8;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label5.Location = new System.Drawing.Point(20, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(151, 28);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Category name";
+            // 
+            // btnaddcatg
+            // 
+            this.btnaddcatg.BorderRadius = 15;
+            this.btnaddcatg.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.btnaddcatg.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.btnaddcatg.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.btnaddcatg.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.btnaddcatg.FillColor = System.Drawing.Color.PapayaWhip;
+            this.btnaddcatg.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btnaddcatg.ForeColor = System.Drawing.Color.Black;
+            this.btnaddcatg.Location = new System.Drawing.Point(20, 248);
+            this.btnaddcatg.Name = "btnaddcatg";
+            this.btnaddcatg.Size = new System.Drawing.Size(187, 42);
+            this.btnaddcatg.TabIndex = 10;
+            this.btnaddcatg.Text = "ADD Catg.";
+            this.btnaddcatg.Click += new System.EventHandler(this.btnaddcatg_Click);
+            // 
+            // Rmvbtncatg
+            // 
+            this.Rmvbtncatg.BorderRadius = 15;
+            this.Rmvbtncatg.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.Rmvbtncatg.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.Rmvbtncatg.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.Rmvbtncatg.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.Rmvbtncatg.FillColor = System.Drawing.Color.PapayaWhip;
+            this.Rmvbtncatg.Font = new System.Drawing.Font("MS Reference Sans Serif", 10.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.Rmvbtncatg.ForeColor = System.Drawing.Color.Black;
+            this.Rmvbtncatg.Location = new System.Drawing.Point(20, 318);
+            this.Rmvbtncatg.Name = "Rmvbtncatg";
+            this.Rmvbtncatg.Size = new System.Drawing.Size(187, 42);
+            this.Rmvbtncatg.TabIndex = 11;
+            this.Rmvbtncatg.Text = "REMOVE Catg.";
+            this.Rmvbtncatg.Click += new System.EventHandler(this.Rmvbtncatg_Click);
+            // 
             // Add_Item
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
+            this.Controls.Add(this.Rmvbtncatg);
+            this.Controls.Add(this.btnaddcatg);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.addtxtcat);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.btnAddItem);
             this.Controls.Add(this.txtItemPrice);
@@ -175,5 +238,9 @@
         private TextBox txtItemPrice;
         private Guna.UI2.WinForms.Guna2Button btnAddItem;
         private Label label4;
+        private TextBox addtxtcat;
+        private Label label5;
+        private Guna.UI2.WinForms.Guna2Button btnaddcatg;
+        private Guna.UI2.WinForms.Guna2Button Rmvbtncatg;
     }
 }

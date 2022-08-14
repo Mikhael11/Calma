@@ -127,6 +127,13 @@ namespace Calma
         {
             loaddata();
         }
+
+        private void Logout_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            LoginPg lg = new LoginPg();
+            lg.Show();
+            this.Hide();
+        }
     }
 }
 

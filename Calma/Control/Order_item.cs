@@ -157,12 +157,12 @@ namespace Calma.Control
             
             //printer.Footer = "Total " + txtTotalPrice;
             // System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\\your_path_here\\sample.txt");
-            string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm_tt");
+            string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm-ss_tt");
             string pa = ($"C:\\printer\\files\\{date1}.txt");
-            query = "Select count(*) as count from Transactions where date like '%-07-2022%'";
+            query = "Select count(*) as count from Transactions where date like '" + date1.Split('_')[0] +"%'";
             var ds = fn.GetData(query);
             var countOfItems = ds.Tables[0].Rows[0][0].ToString();
-
+            countOfItems = int.Parse(countOfItems) + 1 + "";
             using (FileStream fs = File.Create(pa))
             {
                 using (TextWriter tw = new StreamWriter(fs))
@@ -181,7 +181,7 @@ namespace Calma.Control
             }
             if (total > 0)
             {
-                string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm tt");
+                string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm:ss tt");
 
                 SqlConnection conn = new SqlConnection();
                 conn.ConnectionString = ConfigurationManager.ConnectionStrings["database"].ConnectionString;
@@ -202,7 +202,7 @@ namespace Calma.Control
                 txtPrice.Text = "LE";
                 txtService.Text = "LE";
                 textnameorder.Text = "";
-                textpriceorder.Text = "";
+                textpriceorder.Text = "0";
                 numorder.Value = 0;
             }
         }
@@ -262,6 +262,7 @@ namespace Calma.Control
                 txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "";
                 txtPrice.Text = +Math.Ceiling(total) + "";
                 txtService.Text = +Math.Ceiling(total * 0.12) + "";
+                
                 /* ReportDataSource rds = new ReportDataSource();
                  rds.Name = "DataSet1";
                  rds.Value = guna2DataGridView1.DataSource;
@@ -273,9 +274,9 @@ namespace Calma.Control
                 //CrystalReport1 rpt = new CrystalReport1();
                 //rpt.SetDataSource(guna2DataGridView1.DataSource);
 
-                numorder.Value = 0;
+                numorder.Value = 0;   
                 textnameorder.Text = "";
-                textpriceorder.Text = "";
+                textpriceorder.Text = "0";
             }
             else
             {

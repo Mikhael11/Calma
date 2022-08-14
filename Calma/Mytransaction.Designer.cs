@@ -81,6 +81,7 @@
             this.Logout.TabIndex = 27;
             this.Logout.TabStop = true;
             this.Logout.Text = "Log Out";
+            this.Logout.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.Logout_LinkClicked);
             // 
             // Dlttrans
             // 

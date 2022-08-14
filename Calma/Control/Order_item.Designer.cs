@@ -100,7 +100,10 @@
             "Mojito",
             "Extra Flavors",
             "Deserts",
-            "BITES"});
+            "BITES",
+            "Fries",
+            "Sandwiches",
+            "Meals"});
             this.combocatg.Location = new System.Drawing.Point(19, 109);
             this.combocatg.Name = "combocatg";
             this.combocatg.Size = new System.Drawing.Size(207, 36);
