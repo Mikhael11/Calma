@@ -223,6 +223,7 @@
             this.Controls.Add(this.label1);
             this.Name = "Add_Item";
             this.Size = new System.Drawing.Size(974, 765);
+            this.Load += new System.EventHandler(this.Add_Item_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

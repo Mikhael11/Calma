@@ -44,10 +44,16 @@ namespace Calma
                 my.Show();
                 this.Hide();
             }
+            else if (txtName.Text == "tra" && txtPass.Text == "tra2022")
+            {
+                TraDaily tr = new TraDaily();
+                tr.Show();
+                this.Hide();
+            }
         }
         private void expiry()
         {
-            if (DateTime.Now > new DateTime(2022, 12, 29)) //year, month, day in order
+            if (DateTime.Now > new DateTime(2025, 5, 30)) //year, month, day in order
             {
                 MessageBox.Show("The form has expired.  Please update");
                 Application.Exit();

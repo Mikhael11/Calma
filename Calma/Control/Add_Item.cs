@@ -63,5 +63,10 @@ namespace Calma.Control
         {
             txtCatg.Items.Remove(addtxtcat.Text);
         }
+
+        private void Add_Item_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
