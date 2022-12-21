@@ -12,6 +12,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Schema;
 using static System.Windows.Forms.DataFormats;
 //using Startup useLegacyV2RuntimeActivationPolicy = "true"; 
 
@@ -105,12 +106,13 @@ namespace Calma.Control
             Int64 price = Int64.Parse(textpriceorder.Text);
             texttotalorder.Text = (quan * price).ToString();
         }
-        protected double total = 0;
+        double total = 0;
         protected int n;
 
         int amount;
+        double disc;
         private System.Drawing.Printing.PrintPageEventArgs ee;
-
+        double discount = 0;
         private void guna2DataGridView1_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             try
@@ -144,67 +146,78 @@ namespace Calma.Control
             {
 
             }
-            txtTotalPrice.Text = + Math.Ceiling(total + (total * 0.12)) + "";
+            //disc += int.Parse(txtdisc.Text);
+            //discount += total - (total * (disc / 100));
+
+            txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "";
             txtPrice.Text = +Math.Ceiling(total) + "";
+            //textdisc.Text = +Math.Ceiling(discount) + "";
             txtService.Text = +Math.Ceiling(total * 0.12) + "";
 
         }
         
         private void Print_Click(object sender, EventArgs e)
         {
-            
-            
-            
-            //printer.Footer = "Total " + txtTotalPrice;
-            // System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\\your_path_here\\sample.txt");
-            string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm-ss_tt");
-            string pa = ($"C:\\printer\\files\\{date1}.txt");
-            query = "Select count(*) as count from Transactions where date like '" + date1.Split('_')[0] +"%'";
-            var ds = fn.GetData(query);
-            var countOfItems = ds.Tables[0].Rows[0][0].ToString();
-            countOfItems = int.Parse(countOfItems) + 1 + "";
-            using (FileStream fs = File.Create(pa))
+            //tprice = int.Parse(txtPrice.Text);
+            if (txtPrice.Text!="LE" && txtPrice.Text!="0")
             {
-                using (TextWriter tw = new StreamWriter(fs))
+                //printer.Footer = "Total " + txtTotalPrice;
+                // System.IO.StreamWriter file = new System.IO.StreamWriter(@"C:\\your_path_here\\sample.txt");
+                string date1 = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy_hh-mm-ss_tt");
+                string pa = ($"C:\\printer\\files\\{date1}.txt");
+                query = "Select count(*) as count from Transactions where date like '" + date1.Split('_')[0] + "%'";
+                var ds = fn.GetData(query);
+                var countOfItems = ds.Tables[0].Rows[0][0].ToString();
+                countOfItems = int.Parse(countOfItems) + 1 + "";
+                using (FileStream fs = File.Create(pa))
                 {
-                    for (int i = 0; i < guna2DataGridView1.Rows.Count - 1; i++)
+                    using (TextWriter tw = new StreamWriter(fs))
                     {
-                        //for (int j = 0; j < guna2DataGridView1.Columns.Count; j++)
-                        //{
-                        tw.WriteLine($"{guna2DataGridView1.Rows[i].Cells[0].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[1].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[2].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[3].Value.ToString()}");
+                        for (int i = 0; i < guna2DataGridView1.Rows.Count - 1; i++)
+                        {
+                            //for (int j = 0; j < guna2DataGridView1.Columns.Count; j++)
+                            //{
+                            tw.WriteLine($"{guna2DataGridView1.Rows[i].Cells[0].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[1].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[2].Value.ToString()},{guna2DataGridView1.Rows[i].Cells[3].Value.ToString()}");
 
-                        //}
-                        //tw.WriteLine("\n");
+                            //}
+                            //tw.WriteLine("\n");
+                        }
+                        tw.WriteLine(countOfItems + ',' + txtPrice.Text);
                     }
-                    tw.WriteLine(countOfItems+','+txtPrice.Text);
+                }
+                if (total > 0)
+                {
+                    string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm:ss tt");
+
+                    SqlConnection conn = new SqlConnection();
+                    conn.ConnectionString = ConfigurationManager.ConnectionStrings["database"].ConnectionString;
+                    SqlCommand cmd = new SqlCommand();
+                    SqlCommand cmd2 = new SqlCommand();
+                    cmd.Connection = conn;
+                    cmd2.Connection = conn;
+                    conn.Open();
+                    cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
+                    cmd2.CommandText = "INSERT INTO T3 (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
+                    cmd.ExecuteNonQuery();
+                    cmd2.ExecuteNonQuery();
+                    conn.Close();
+                    total = 0;
+                    amount = 0;
+                    disc = 0;
+                    discount = 0;
+                    guna2DataGridView1.Rows.Clear();
+                    txtTotalPrice.Text = "LE";
+                    txtPrice.Text = "LE";
+                    txtService.Text = "LE";
+                    textdisc.Text = "LE";
+                    textnameorder.Text = "";
+                    textpriceorder.Text = "0";
+                    numorder.Value = 0;
                 }
             }
-            if (total > 0)
-            {
-                string date = TimeZoneInfo.ConvertTimeBySystemTimeZoneId(DateTime.Now, "Egypt Standard Time").ToString("dd-MM-yyyy hh:mm:ss tt");
-
-                SqlConnection conn = new SqlConnection();
-                conn.ConnectionString = ConfigurationManager.ConnectionStrings["database"].ConnectionString;
-                SqlCommand cmd = new SqlCommand();
-                SqlCommand cmd2 = new SqlCommand();
-                cmd.Connection = conn;
-                cmd2.Connection = conn;
-                conn.Open();
-                cmd.CommandText = "INSERT INTO Transactions (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
-                cmd2.CommandText = "INSERT INTO T3 (date, totalPrice) VALUES ('" + date + "', " + Math.Ceiling(total + (total * 0.12)) + ")";
-                cmd.ExecuteNonQuery();
-                cmd2.ExecuteNonQuery();
-                conn.Close();
-                total = 0;
-                amount = 0;
-                guna2DataGridView1.Rows.Clear();
-                txtTotalPrice.Text = "LE";
-                txtPrice.Text = "LE";
-                txtService.Text = "LE";
-                textnameorder.Text = "";
-                textpriceorder.Text = "0";
-                numorder.Value = 0;
-            }
+            else
+                MessageBox.Show("No items found");
+                
         }
 
       
@@ -233,7 +246,7 @@ namespace Calma.Control
 
         private void Order_item_Load(object sender, EventArgs e)
         {
-
+            txtdisc.Text = "0";
         }
 
         private void textpriceorder_TextChanged(object sender, EventArgs e)
@@ -247,7 +260,7 @@ namespace Calma.Control
         }
         ReportDataSource rds = new ReportDataSource();
        
-
+        
         private void btnCard_Click(object sender, EventArgs e)
         {
             if (texttotalorder.Text != "0" && texttotalorder.Text != "")
@@ -259,8 +272,12 @@ namespace Calma.Control
                 guna2DataGridView1.Rows[n].Cells[3].Value = texttotalorder.Text;
 
                 total += int.Parse(texttotalorder.Text);
+                disc += int.Parse(txtdisc.Text);
+                //discount += total - ( total*(disc/100) );
+                
                 txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "";
                 txtPrice.Text = +Math.Ceiling(total) + "";
+                textdisc.Text = +Math.Ceiling(disc) + "";
                 txtService.Text = +Math.Ceiling(total * 0.12) + "";
                 
                 /* ReportDataSource rds = new ReportDataSource();
@@ -277,6 +294,7 @@ namespace Calma.Control
                 numorder.Value = 0;   
                 textnameorder.Text = "";
                 textpriceorder.Text = "0";
+                txtdisc.Text = "0";
             }
             else
             {
@@ -294,14 +312,37 @@ namespace Calma.Control
 
         }
 
-        private void Reportbtn_Click(object sender, EventArgs e)
-        {
-        
-        }
-
+       
         private void txtService_Click(object sender, EventArgs e)
         {
 
+        }
+        double tprice;
+        private void discbtn_Click(object sender, EventArgs e)
+        {
+         /*   tprice += int.Parse(txtPrice.Text);
+            disc += int.Parse(txtdisc.Text);
+            discount += tprice - ( tprice*(disc/100) );
+            txtTotalPrice.Text = +Math.Ceiling(discount + (total * 0.12)) + "";
+            txtPrice.Text = +Math.Ceiling(total) + "";
+            textdisc.Text = +Math.Ceiling(discount) + "";
+            txtService.Text = +Math.Ceiling(total * 0.12) + "";*/
+        }
+
+        private void safarbtn_Click(object sender, EventArgs e)
+        {
+            total = 0;
+            amount = 0;
+            disc = 0;
+            discount = 0;
+            guna2DataGridView1.Rows.Clear();
+            txtTotalPrice.Text = "LE";
+            txtPrice.Text = "LE";
+            txtService.Text = "LE";
+            textdisc.Text = "LE";
+            textnameorder.Text = "";
+            textpriceorder.Text = "0";
+            numorder.Value = 0;
         }
     }
 }
