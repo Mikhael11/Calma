@@ -146,14 +146,14 @@ namespace Calma.Control
             {
 
             }
-            //disc += int.Parse(txtdisc.Text);
-            //discount += total - (total * (disc / 100));
-
+            tprice = int.Parse(txtPrice.Text);
+            disc = int.Parse(txtdisc.Text);
+            discount = tprice - (tprice * (disc / 100));
             txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "";
             txtPrice.Text = +Math.Ceiling(total) + "";
-            //textdisc.Text = +Math.Ceiling(discount) + "";
+            textdisc.Text = +Math.Ceiling(discount) + "";
             txtService.Text = +Math.Ceiling(total * 0.12) + "";
-
+            
         }
         
         private void Print_Click(object sender, EventArgs e)
@@ -182,7 +182,7 @@ namespace Calma.Control
                             //}
                             //tw.WriteLine("\n");
                         }
-                        tw.WriteLine(countOfItems + ',' + txtPrice.Text);
+                        tw.WriteLine(countOfItems + ',' + txtPrice.Text + ',' + txtdisc.Text);
                     }
                 }
                 if (total > 0)
@@ -213,10 +213,11 @@ namespace Calma.Control
                     textnameorder.Text = "";
                     textpriceorder.Text = "0";
                     numorder.Value = 0;
+                    txtdisc.Text = "0";
                 }
             }
             else
-                MessageBox.Show("No items found");
+                MessageBox.Show("No items found to print");
                 
         }
 
@@ -263,7 +264,7 @@ namespace Calma.Control
         
         private void btnCard_Click(object sender, EventArgs e)
         {
-            if (texttotalorder.Text != "0" && texttotalorder.Text != "")
+            if (texttotalorder.Text != "0" && texttotalorder.Text != "" && txtdisc.Text!="")
             {
                 n = guna2DataGridView1.Rows.Add();
                 guna2DataGridView1.Rows[n].Cells[0].Value = textnameorder.Text;
@@ -298,7 +299,7 @@ namespace Calma.Control
             }
             else
             {
-                MessageBox.Show("Minimum quantity need to be 1", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Minimum quantity need to be 1/you must put discount", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
 
@@ -320,13 +321,13 @@ namespace Calma.Control
         double tprice;
         private void discbtn_Click(object sender, EventArgs e)
         {
-         /*   tprice += int.Parse(txtPrice.Text);
-            disc += int.Parse(txtdisc.Text);
-            discount += tprice - ( tprice*(disc/100) );
+            tprice = int.Parse(txtPrice.Text);
+            disc = int.Parse(txtdisc.Text);
+            discount = tprice - ( tprice*(disc/100) );
             txtTotalPrice.Text = +Math.Ceiling(discount + (total * 0.12)) + "";
             txtPrice.Text = +Math.Ceiling(total) + "";
             textdisc.Text = +Math.Ceiling(discount) + "";
-            txtService.Text = +Math.Ceiling(total * 0.12) + "";*/
+            txtService.Text = +Math.Ceiling(total * 0.12) + "";
         }
 
         private void safarbtn_Click(object sender, EventArgs e)
