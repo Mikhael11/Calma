@@ -151,7 +151,8 @@ namespace Calma.Control
             discount = tprice - (tprice * (disc / 100));
             txtTotalPrice.Text = +Math.Ceiling(total + (total * 0.12)) + "";
             txtPrice.Text = +Math.Ceiling(total) + "";
-            textdisc.Text = +Math.Ceiling(discount) + "";
+            textdisc.Text = "0";
+            txtdisc.Text = "0";
             txtService.Text = +Math.Ceiling(total * 0.12) + "";
             
         }
